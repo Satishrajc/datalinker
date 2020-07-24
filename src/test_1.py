@@ -1,9 +1,12 @@
+#!/usr/bin/python
+# Importing required modules
+import test_2
 import datalinker
 data = datalinker.DataLinker().run()
-import test2
 
-# Setting the data
-data.set("Name", "Satish")
+if __name__ == '__main__':
+	# Setting the data
+	data.set("message", "Hello World!!")
 
-# Calling test_2.py
-test2.print_name()
+	# Calling test_2.py
+	test_2.print_msg()

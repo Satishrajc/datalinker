@@ -5,14 +5,14 @@ with open("README.md", "r") as fh:
 
 setup(
 		name="datalinker",
-		version="0.0.1",
+		version="0.0.2",
 		author="Satish Chougule",
 		author_email="satishrajc@gmail.com",
 		description="Data sharing mechanism between the Python files across the process",
 		long_description=long_description,
 		long_description_content_type="text/markdown",
-		url="https://github.com/TBD",
-		py_modules=["datalinker"],
+		url="https://github.com/Satishrajc/datalinker",
+		py_modules=["datalinker", "test_1", "test_2"],
 		package_dir={"":"src"},
 		classifiers=[
 				"Programming Language :: Python :: 3",
