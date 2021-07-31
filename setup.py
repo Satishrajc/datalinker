@@ -5,16 +5,17 @@ with open("README.md", "r") as fh:
 
 setup(
 		name="datalinker",
-		version="2.0.0",
+		version="2.1.0",
 		author="Satish Chougule",
 		author_email="satishrajc@gmail.com",
-		description="""Variable sharing mechanism between Python "
-					fies and across the project/process""",
+		description="""Variable sharing mechanism between Python
+					fies/folders and across the project/process""",
 		long_description=long_description,
 		long_description_content_type="text/markdown",
 		url="https://github.com/Satishrajc/datalinker",
+		keywords=['DATA SHARING', 'VARIABLE SHARING', 'SHARING'],
 		py_modules=["datalinker", "test_1", "test_2"],
-		package_dir={"":"src"},
+		package_dir={"": "src"},
 		install_requires=[],
 		setup_requires=[],
 		classifiers=[
