@@ -1,72 +1,96 @@
-This package helps you to share the data across the Python files. Once you set the data in any file and if you 
-want to fetch it in any other Python file then you can do it easily with this package.
-You need to import the *datalinker* library in all the Python files to use this feature. 
-Once we import then we can do *get/set* the data.
+This package helps you to share the variables/data across the different Python files in the 
+project/package. Once you set the variables in any Python file (.py) and if you want to access or fetch 
+that in any other Python file in any location then you can do it easily with this package. You need to import the 
+datalinker library in all the Python files to use this feature. We need import the package at the 
+top of the file after that we can do push/pop the data. It is very simple to use this library just you need to install it, 
+import it and use it.
+
+## Supported data structure:
+This library supports all the Python in-built data structures
+1. String
+2. Number
+3. List
+4. Tuple
+5. Dictionary
+6. Sets
+
+## Advantages:
+1. We need not to send arguments/parameters while calling the functions/method
+2. Need not to return any variables/values from the function/method once you set the variables using push()
+3. Easy to maintain the variables across the Python files
+4. Need not to use global variables
+5. Eliminates extra headache to maintain the variable and its names
 
 ## Installation
 Run the following to install
-
 ```
 pip install datalinker
 ```
 
 ## Usage
-#### Import and create a instant
+#### Import and create an instance
 ```
 import datalinker
-data_linker = datalinker.DataLinker().run()
+data = datalinker.DataLinker().run()
 ```
+
 #### Setting the data
-While setting the data give a unique name to the variable so that you can access it while *get()*
+While pushing/setting the data give a unique name to the variable so that you can access it while pop()
+
 ```
-data_linker.set("variable_name", "variable_value")
+data.push(variable_name, variable_value)
 ```
 
 #### Getting the data
-Whatever variable name you have provided in *set()* can be fetched as below
+Whatever variable name you have provided in push() can be fetched as below
+
+Example:
+
 ```
-data_linker.get("variable_name")
+data.pop(variable_name)
 ```
-#### Advantages:
-1. We need not to send arguments/parameters while calling the functions
-2. Need not to return any values from the function/modules once you set the variables using *get()*
-3. Easy to maintain the variables across the Python files
-5. Need not to use *global* variables 
 
 ## Example:
-In the following example will set the *message* in the test_1.py and retrieve it test_2.py.
+In the following example will set the variable "message" in the test_1.py and retrieve it test_2.py.
 
-##### test_1.py
+#### test_1.py
+
 ```
 #!/usr/bin/python
-# Importing required modules
-import test_2
+# Importing data linker package
 import datalinker
+
+# Create a object using datalinker library
 data = datalinker.DataLinker().run()
+
+import test_2
 
 if __name__ == '__main__':
-   # Setting the data
-   data.set("message", "Hello World!!")
+	# Setting the data
+	data.push("message", "Hello World!!")
 
-   # Calling test_2.py
-   test_2.print_msg()
+	# Calling test_2.py without any argumnets
+	test_2.print_msg()
 ```
-##### test_2.py
+
+#### test.py
 ```
 #!/usr/bin/python
-
-# Importing required modules
+# Importing data linker package
 import datalinker
+
+# Create a object using datalinker library
 data = datalinker.DataLinker().run()
+
+import test_2
 
 def print_msg():
     # Getting back the data
-    name = data.get("message")
-    print(f"The message is: {name}")
+    msg_data = data.pop("message")
+    print(f"The message is: {msg_data}")
 ```
 
-##### Note: 
-1. Its case sensitive hence carefully while setting and getting the variables
-2. Suppose if have not set the data but if are trying to access that using *get()* method then 
-will not get an error instead it will return *None*
-3. Once the process is done then the variable will be destroyed
+#### NOTE:
+1. Its case-sensitive hence be careful while pushing and popping the variables
+2. Suppose if have not set the data abut if you try to access that using pop() method then will not return an error instead it will return None
+3. Once the process is done then the variables will be destroyed
