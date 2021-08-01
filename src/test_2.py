@@ -1,13 +1,12 @@
 #!/usr/bin/python
-# Importing data linker package
+# Import datalinker package
 import datalinker
 
-# Create a object using datalinker library
+# Create an object using datalinker library
 data = datalinker.DataLinker().run()
 
-import test_2
 
-
+# Observe that no argument has Òbeen received in the function definition
 def print_msg():
     # Getting back the data
     msg_data = data.pop("message")

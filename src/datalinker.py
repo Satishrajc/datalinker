@@ -5,7 +5,7 @@ import deprecation
 Description: 
 Data sharing mechanism between the python files across the process
 """
-__version__ = '0.0.3'
+__version__ = '2.1.1'
 
 
 class GlobalBuffer(dict):
@@ -45,7 +45,6 @@ class Main(GlobalBuffer):
                             current_version=__version__,
                             details="Use the push() instead of set() instead")
     def set(self, buffer, value):
-        print()
         return self.push(buffer, value)
 
     @deprecation.deprecated(deprecated_in="0.0.2", removed_in="0.0.2",
@@ -55,10 +54,8 @@ class Main(GlobalBuffer):
         return self.pop(buffer)
 
 
-class DataLinker(object):
+class DataLinker(Main):
     DataSharing_object = Main()
 
     def run(self):
         return self.DataSharing_object
-
-
